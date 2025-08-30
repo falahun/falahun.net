@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Falahon Technology</title>
+    <meta name="description"
+        content="Browse the portfolio of Falahon Technology to see our successful tech projects and product showcases.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a73e8',
+                        secondary: '#28a745',
+                        light: '#f4f4f4',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="font-roboto bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+
+    <!-- Header & Navbar -->
+    <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-primary dark:text-white">Falahon Technology</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html"
+                    class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition">Home</a>
+                <a href="about.html"
+                    class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition">About</a>
+                <a href="services.html"
+                    class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition">Services</a>
+                <a href="portfolio.html" class="text-primary dark:text-white font-semibold">Portfolio</a>
+                <a href="blog.html"
+                    class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition">Blog</a>
+                <a href="contact.html"
+                    class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition">Contact</a>
+            </div>
+            <div class="flex items-center">
+                <button id="dark-mode-toggle" class="mr-4 focus:outline-none">
+                    <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                        </path>
+                    </svg>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                    <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="index.html"
+                class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition">Home</a>
+            <a href="about.html"
+                class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition">About</a>
+            <a href="services.html"
+                class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition">Services</a>
+            <a href="portfolio.html" class="block text-primary dark:text-white font-semibold">Portfolio</a>
+            <a href="blog.html"
+                class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition">Blog</a>
+            <a href="contact.html"
+                class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="bg-light dark:bg-gray-800 py-12">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl font-bold font-poppins text-gray-800 dark:text-white">Our Portfolio</h1>
+                <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">A showcase of our finest work and projects.</p>
+            </div>
+        </section>
+
+        <!-- Portfolio Grid -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Item -->
+                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden group">
+                        <img src="https://placehold.co/600x400" alt="Project 1"
+                            class="w-full h-64 object-cover cursor-pointer lightbox-trigger">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Project Alpha</h3>
+                            <p class="mt-2 text-gray-600 dark:text-gray-400">A web platform for enterprise clients.</p>
+                        </div>
+                    </div>
+                    <!-- Project Item -->
+                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden group">
+                        <img src="https://placehold.co/600x400" alt="Project 2"
+                            class="w-full h-64 object-cover cursor-pointer lightbox-trigger">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Project Beta</h3>
+                            <p class="mt-2 text-gray-600 dark:text-gray-400">Mobile application for a startup.</p>
+                        </div>
+                    </div>
+                    <!-- Project Item -->
+                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden group">
+                        <img src="https://placehold.co/600x400" alt="Project 3"
+                            class="w-full h-64 object-cover cursor-pointer lightbox-trigger">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Project Gamma</h3>
+                            <p class="mt-2 text-gray-600 dark:text-gray-400">Cloud migration for a financial
+                                institution.</p>
+                        </div>
+                    </div>
+                    <!-- Add more projects as needed -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox-modal" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-content" id="lightbox-image">
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-black text-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Falahon Technology. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const lightboxModal = document.getElementById('lightbox-modal');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxClose = document.querySelector('.lightbox-close');
+            const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+
+            lightboxTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    lightboxModal.style.display = 'block';
+                    lightboxImage.src = trigger.src;
+                });
+            });
+
+            lightboxClose.addEventListener('click', () => {
+                lightboxModal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target == lightboxModal) {
+                    lightboxModal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
